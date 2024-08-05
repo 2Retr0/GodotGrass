@@ -1,0 +1,10 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://cu778cjhw0raj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_urkrv"]
+frequency = 0.025
+offset = Vector3(-2, 0, 0)
+fractal_gain = 0.1
+
+[resource]
+seamless = true
+noise = SubResource("FastNoiseLite_urkrv")
