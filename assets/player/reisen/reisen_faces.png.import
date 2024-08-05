@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b804axl023ijr"
-path.s3tc="res://.godot/imported/reisen_faces.png-865c3bc7f349d7b96dc518bccb31f66c.s3tc.ctex"
+path="res://.godot/imported/reisen_faces.png-865c3bc7f349d7b96dc518bccb31f66c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "8b6b57fe6eb6afc284a86477126acf6a"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/player/reisen/reisen_faces.png"
-dest_files=["res://.godot/imported/reisen_faces.png-865c3bc7f349d7b96dc518bccb31f66c.s3tc.ctex"]
+dest_files=["res://.godot/imported/reisen_faces.png-865c3bc7f349d7b96dc518bccb31f66c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

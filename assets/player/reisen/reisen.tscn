@@ -1,39 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci8xspbvlrqv6"]
+[gd_scene load_steps=6 format=3 uid="uid://ci8xspbvlrqv6"]
 
 [ext_resource type="PackedScene" uid="uid://cguqdcgualws5" path="res://assets/player/reisen/reisen.glb" id="1_ridhn"]
 [ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="2_nrpot"]
-[ext_resource type="Shader" path="res://assets/player/reisen/reisen.gdshader" id="2_y25wq"]
-[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/reisen_body.png" id="3_nlmed"]
-[ext_resource type="Shader" path="res://assets/player/reisen/outline.gdshader" id="4_pbxtn"]
-[ext_resource type="Texture2D" uid="uid://b804axl023ijr" path="res://assets/player/reisen/reisen_faces.png" id="4_yxi5a"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4uef"]
-render_priority = 0
-shader = ExtResource("4_pbxtn")
-shader_parameter/outline_thighness = 0.055
-
-[sub_resource type="Gradient" id="Gradient_lq7rw"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(0.200524, 0.109677, 0.356419, 1, 1, 0.797112, 0.741721, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_f2h2u"]
-gradient = SubResource("Gradient_lq7rw")
-width = 4
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_128tu"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_b4uef")
-shader = ExtResource("2_y25wq")
-shader_parameter/albedo_texture = ExtResource("3_nlmed")
-shader_parameter/color_ramp = SubResource("GradientTexture1D_f2h2u")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwyuj"]
-resource_name = "Faces"
-render_priority = 0
-shader = ExtResource("2_y25wq")
-shader_parameter/albedo_texture = ExtResource("4_yxi5a")
-shader_parameter/color_ramp = SubResource("GradientTexture1D_f2h2u")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ir08u"]
 radius = 0.8
@@ -148,12 +116,8 @@ bones/70/rotation = Quaternion(0.999934, 1.1103e-16, 0.0115107, -2.23094e-07)
 bones/71/rotation = Quaternion(-3.55271e-15, 9.3656e-07, -5.37336e-21, 1)
 bones/74/rotation = Quaternion(-0.580216, 5.11265e-15, 0.814463, -4.47952e-15)
 
-[node name="Model" parent="Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_128tu")
-surface_material_override/1 = SubResource("ShaderMaterial_mwyuj")
-
 [node name="JiggleboneSkirtL_0" type="Node3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.000954263, 0.0341614, 0.117676, 0.00265472, -0.117647, 0.0341743, 0.122506, 0.00281552, 0.000176091, 0.499699, -0.0755716, 0.0955996)
+transform = Transform3D(-0.000954263, 0.0341614, 0.117676, 0.00265472, -0.117647, 0.0341742, 0.122506, 0.00281552, 0.000176095, 0.499699, -0.0755716, 0.0955998)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "skirt0_L"
@@ -164,7 +128,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentThighL/CollisionShape3D")
 
 [node name="JiggleboneSkirtL_1" type="Node3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.0863684, 0.0173241, 0.0851823, 0.0134688, -0.121297, 0.0110127, 0.0858764, 0.00160076, -0.0873976, 0.199156, -0.316795, -0.00952394)
+transform = Transform3D(0.0863684, 0.0173241, 0.0851824, 0.0134688, -0.121297, 0.0110127, 0.0858764, 0.00160077, -0.0873976, 0.199156, -0.316796, -0.00952395)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "skirt1_L"
@@ -175,7 +139,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentThighL/CollisionShape3D")
 
 [node name="JiggleboneSkirtR_0" type="Node3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(-0.00222075, -0.0352849, -0.117327, -0.00740449, -0.117093, 0.0353547, -0.122294, 0.00773034, -1.00518e-05, -0.518184, -0.0633183, 0.178313)
+transform = Transform3D(-0.00222075, -0.0352849, -0.117327, -0.00740441, -0.117093, 0.0353547, -0.122294, 0.00773027, -1.00372e-05, -0.518184, -0.0633186, 0.178312)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "skirt0_R"
@@ -186,7 +150,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentThighR/CollisionShape3D")
 
 [node name="JiggleboneSkirtR_1" type="Node3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.0857909, -0.0179108, -0.0856433, -0.0155878, -0.121153, 0.00972237, -0.0860964, 0.00408772, -0.0870997, -0.201057, -0.31586, -0.00120895)
+transform = Transform3D(0.0857909, -0.0179107, -0.0856433, -0.0155878, -0.121153, 0.00972236, -0.0860964, 0.00408769, -0.0870997, -0.201056, -0.31586, -0.00120898)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "skirt1_R"
@@ -197,7 +161,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentThighR/CollisionShape3D")
 
 [node name="JiggleboneHair0" type="Node3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.122045, 0.010967, 0.000298263, 0.0107273, -0.11999, 0.0224271, 0.00229925, -0.0223111, -0.120467, 0.0899504, 0.534084, -0.348795)
+transform = Transform3D(0.122041, 0.0110126, 0.000291264, 0.0107719, -0.119972, 0.0225037, 0.00230758, -0.0223871, -0.120453, 0.0899504, 0.534084, -0.348795)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair0"
@@ -207,7 +171,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHair1" type="Node3D" parent="Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.122537, -0.000224179, 5.70312e-06, -0.000223855, -0.122098, 0.0103815, -1.331e-05, -0.0103816, -0.122097, 0.0391123, 0.0852897, -0.246202)
+transform = Transform3D(0.122537, -0.000201328, 2.16773e-06, -0.000200783, -0.122095, 0.0104149, -1.49515e-05, -0.0104149, -0.122094, 0.0392723, 0.0853549, -0.246382)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair1"
@@ -218,7 +182,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHair2" type="Node3D" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.122374, -0.00631828, -0.000468481, -0.00633403, -0.12221, -0.00634155, -0.000140245, 0.00635732, -0.122373, -0.0131958, -0.318886, -0.228875)
+transform = Transform3D(0.122374, -0.0063097, -0.00046888, -0.00632544, -0.122212, -0.00630709, -0.000142871, 0.00632292, -0.122374, -0.0129566, -0.318795, -0.22895)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair2"
@@ -228,7 +192,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHair3" type="Node3D" parent="Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.117968, -0.0330628, -0.00242254, 0.0317896, -0.115361, 0.0263984, -0.00940336, 0.0247856, 0.119636, -0.247959, -0.582235, -0.0620383)
+transform = Transform3D(-0.117695, -0.0338917, -0.00382225, 0.0327365, -0.11611, 0.0215034, -0.00956917, 0.0196327, 0.120576, -0.26079, -0.59255, -0.146532)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair3"
@@ -237,7 +201,7 @@ damping = 1.0
 forward_axis = 1
 
 [node name="JiggleboneBangs" type="Node3D" parent="Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.122538, 4.79352e-11, 1.46076e-08, 8.35595e-09, -0.10074, -0.0697647, 1.19817e-08, 0.0697647, -0.10074, 1.7746e-12, 0.785756, 0.654041)
+transform = Transform3D(0.122538, 2.52499e-13, 1.46076e-08, 8.31716e-09, -0.100737, -0.0697684, 1.20086e-08, 0.0697684, -0.100737, 1.7746e-12, 0.785756, 0.654041)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "bangs"
@@ -246,7 +210,7 @@ damping = 6.0
 forward_axis = 1
 
 [node name="JiggleboneWispL_0" type="Node3D" parent="Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.121283, 0.010711, 0.0138312, 0.0127563, -0.120448, -0.0185825, 0.0119709, 0.019832, -0.120329, 0.234753, 0.593686, 0.269755)
+transform = Transform3D(0.121283, 0.0107106, 0.0138312, 0.0127559, -0.120448, -0.0185826, 0.011971, 0.0198321, -0.120329, 0.234746, 0.593686, 0.269758)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp0_L"
@@ -257,7 +221,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentSpine_0/CollisionShape3D")
 
 [node name="JiggleboneWispL_1" type="Node3D" parent="Armature/Skeleton3D" index="11"]
-transform = Transform3D(0.122425, 0.00527179, -2.95007e-06, 0.00526314, -0.122228, -0.00694897, -0.000301898, 0.00694242, -0.122341, 0.164, 0.205438, 0.093412)
+transform = Transform3D(0.122424, 0.00529983, -3.04708e-07, 0.00529117, -0.122224, -0.00699601, -0.000302884, 0.00698945, -0.122339, 0.164463, 0.205439, 0.0941814)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp1_L"
@@ -267,7 +231,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneWispL_2" type="Node3D" parent="Armature/Skeleton3D" index="12"]
-transform = Transform3D(-0.115412, -0.00175197, -0.0411412, 0.00237551, -0.122507, -0.00144709, -0.0411099, -0.00216049, 0.115416, 0.175416, -0.0593363, 0.108453)
+transform = Transform3D(-0.11542, -0.0013647, -0.0411345, 0.00179639, -0.122521, -0.00097571, -0.0411179, -0.00152204, 0.115424, 0.181558, -0.0592588, 0.118597)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp2_L"
@@ -277,7 +241,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneWispR_0" type="Node3D" parent="Armature/Skeleton3D" index="13"]
-transform = Transform3D(0.121347, -0.0098597, -0.013902, -0.0120543, -0.120311, -0.0198915, -0.0120487, 0.0210657, -0.120111, -0.220743, 0.596993, 0.28978)
+transform = Transform3D(0.121347, -0.00986019, -0.013902, -0.0120548, -0.120311, -0.0198913, -0.0120487, 0.0210656, -0.120111, -0.220751, 0.596993, 0.289777)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp0_R"
@@ -288,7 +252,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentSpine_0/CollisionShape3D")
 
 [node name="JiggleboneWispR_1" type="Node3D" parent="Armature/Skeleton3D" index="14"]
-transform = Transform3D(0.122442, -0.00484782, -0.000101843, -0.00484485, -0.122208, -0.00756817, 0.000197841, 0.00756627, -0.122304, -0.161456, 0.205847, 0.0970993)
+transform = Transform3D(0.122442, -0.00486208, -0.000104698, -0.00485918, -0.122205, -0.00761642, 0.000197791, 0.00761456, -0.122301, -0.161689, 0.205848, 0.0978893)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp1_R"
@@ -298,7 +262,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneWispR_2" type="Node3D" parent="Armature/Skeleton3D" index="15"]
-transform = Transform3D(-0.11536, 0.00195839, 0.0412771, -0.00246791, -0.122509, -0.00108487, 0.0412497, -0.00185262, 0.115372, -0.171955, -0.0588852, 0.113491)
+transform = Transform3D(-0.115368, 0.00172103, 0.0412675, -0.00202596, -0.12252, -0.000554146, 0.0412536, -0.001204, 0.115379, -0.175732, -0.0588183, 0.123792)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "wisp2_R"
@@ -308,7 +272,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneHairL_0" type="Node3D" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.0183769, 0.0244297, 0.118664, -0.02635, -0.117954, 0.0202028, 0.118252, -0.0224872, 0.0229427, 0.318618, 0.534217, -0.248535)
+transform = Transform3D(-0.0183768, 0.0244299, 0.118664, -0.0263505, -0.117954, 0.0202029, 0.118252, -0.0224876, 0.0229428, 0.318617, 0.534217, -0.248535)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair0_L"
@@ -318,7 +282,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHairL_1" type="Node3D" parent="Armature/Skeleton3D" index="17"]
-transform = Transform3D(-0.0212208, 0.00702274, 0.120482, -0.0072608, -0.122183, 0.00584301, 0.120468, -0.00612713, 0.0215755, 0.210512, 0.0205959, -0.142283)
+transform = Transform3D(-0.0212271, 0.00702887, 0.120481, -0.00718708, -0.122187, 0.00586211, 0.120471, -0.00605096, 0.0215786, 0.210607, 0.0205969, -0.141038)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair1_L"
@@ -329,7 +293,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHairL_2" type="Node3D" parent="Armature/Skeleton3D" index="18"]
-transform = Transform3D(-0.0211269, -0.00629328, 0.120539, 0.00694402, -0.122232, -0.00516459, 0.120503, 0.00594033, 0.0214308, 0.233747, -0.383573, -0.162553)
+transform = Transform3D(-0.0210642, -0.00660131, 0.120534, 0.00808677, -0.122157, -0.00527699, 0.120443, 0.0070474, 0.0214345, 0.228648, -0.383418, -0.144827)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair2_L"
@@ -339,7 +303,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneHairR_0" type="Node3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(-0.0180958, -0.024853, -0.118619, 0.0277025, -0.117607, 0.0204148, -0.117986, -0.0238018, 0.0229862, -0.325585, 0.539664, -0.270063)
+transform = Transform3D(-0.0180958, -0.0248529, -0.118619, 0.0277023, -0.117607, 0.0204147, -0.117986, -0.0238017, 0.0229862, -0.325583, 0.539664, -0.270064)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair0_R"
@@ -349,7 +313,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHairR_1" type="Node3D" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(-0.0210652, -0.00725187, -0.120496, 0.00795596, -0.122134, 0.00595959, -0.120451, -0.0067989, 0.0214666, -0.21221, 0.0219874, -0.147556)
+transform = Transform3D(-0.0210651, -0.00725085, -0.120496, 0.00795629, -0.122134, 0.0059585, -0.120451, -0.00679944, 0.0214665, -0.212193, 0.0219874, -0.147566)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair1_R"
@@ -360,7 +324,7 @@ forward_axis = 1
 collision_shape = NodePath("../BoneAttachmentChest/CollisionShape3D")
 
 [node name="JiggleboneHairR_2" type="Node3D" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(-0.0209757, 0.00616747, -0.120572, -0.00659607, -0.122254, -0.005106, -0.120549, 0.00561624, 0.0212591, -0.236203, -0.382019, -0.170048)
+transform = Transform3D(-0.0209273, 0.00653717, -0.120561, -0.00736153, -0.1222, -0.00534819, -0.120513, 0.00632939, 0.0212623, -0.230145, -0.381933, -0.158391)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "hair2_R"
@@ -370,7 +334,7 @@ use_gravity = true
 forward_axis = 1
 
 [node name="JiggleboneEarL_0" type="Node3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(4.07555e-06, 0.0216816, -0.120605, 2.24082e-05, 0.120605, 0.0216816, 0.122538, -2.27873e-05, 3.60692e-08, 0.258517, 2.63905, -0.0131375)
+transform = Transform3D(-4.09016e-07, 0.0216821, -0.120605, -1.66163e-06, 0.120605, 0.0216821, 0.122538, 1.70979e-06, -1.06356e-07, 0.258518, 2.63905, -0.0131375)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear0_L"
@@ -379,7 +343,7 @@ damping = 8.0
 forward_axis = 1
 
 [node name="JiggleboneEarL_1" type="Node3D" parent="Armature/Skeleton3D" index="23"]
-transform = Transform3D(-8.76463e-08, 0.0220127, -0.120545, -0.0866477, 0.0852382, 0.0155654, 0.0866478, 0.0852381, 0.0155653, 0.113056, 0.82992, -0.0131361)
+transform = Transform3D(-3.06762e-07, 0.0220126, -0.120545, -0.0866483, 0.0852375, 0.0155654, 0.0866471, 0.0852388, 0.0155652, 0.113056, 0.82992, -0.0131335)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear1_L"
@@ -388,7 +352,7 @@ use_gravity = true
 forward_axis = 0
 
 [node name="JiggleboneEarL_2" type="Node3D" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(-2.92154e-08, 0.0151983, -0.121592, -0.113211, 0.0465314, 0.00581617, 0.0468934, 0.112337, 0.0140414, 0.133698, 0.909903, 0.0668472)
+transform = Transform3D(-1.60685e-07, 0.0151981, -0.121592, -0.113211, 0.0465309, 0.00581615, 0.046893, 0.112337, 0.0140412, 0.133698, 0.909902, 0.0668505)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear2_L"
@@ -397,7 +361,7 @@ use_gravity = true
 forward_axis = 0
 
 [node name="JiggleboneEarR_0" type="Node3D" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(5.37564e-06, -0.0216815, 0.120605, -2.99166e-05, 0.120605, 0.0216815, -0.122538, -3.04052e-05, -4.10199e-09, -0.258517, 2.63905, -0.0131375)
+transform = Transform3D(-8.47247e-07, -0.0216823, 0.120605, 5.12365e-06, 0.120605, 0.0216823, -0.122538, 5.18643e-06, 6.89363e-08, -0.258517, 2.63905, -0.0131375)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear0_R"
@@ -405,7 +369,7 @@ damping = 10.0
 forward_axis = 1
 
 [node name="JiggleboneEarR_1" type="Node3D" parent="Armature/Skeleton3D" index="26"]
-transform = Transform3D(5.84308e-08, -0.0220128, 0.120545, 0.0866477, 0.0852382, 0.0155654, -0.0866478, 0.0852381, 0.0155654, -0.113056, 0.82992, -0.0131362)
+transform = Transform3D(-5.98916e-07, -0.0220125, 0.120545, 0.0866495, 0.0852363, 0.0155653, -0.0866459, 0.08524, 0.0155651, -0.113056, 0.82992, -0.0131285)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear1_R"
@@ -414,7 +378,7 @@ use_gravity = true
 forward_axis = 3
 
 [node name="JiggleboneEarR_2" type="Node3D" parent="Armature/Skeleton3D" index="27"]
-transform = Transform3D(3.65193e-08, -0.0151984, 0.121592, 0.113211, 0.0465314, 0.00581614, -0.0468934, 0.112337, 0.0140415, -0.133697, 0.909903, 0.0668472)
+transform = Transform3D(-3.2137e-07, -0.0151979, 0.121592, 0.113211, 0.0465301, 0.00581614, -0.0468922, 0.112337, 0.014041, -0.133698, 0.909901, 0.0668567)
 top_level = true
 script = ExtResource("2_nrpot")
 bone_name = "ear2_R"

@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_back,depth_draw_always,shadows_disabled;
+render_mode cull_disabled,depth_prepass_alpha,shadows_disabled;
 
 uniform sampler2D depth_texture : hint_depth_texture, filter_nearest;
 uniform sampler2D albedo_texture : source_color, filter_nearest;

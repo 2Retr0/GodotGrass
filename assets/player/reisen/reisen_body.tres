@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://b5k6pwptfbnop"]
+
+[ext_resource type="Shader" path="res://assets/player/reisen/outline.gdshader" id="1_gdy8i"]
+[ext_resource type="Shader" path="res://assets/player/reisen/reisen.gdshader" id="2_3oejs"]
+[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/reisen_body.png" id="3_we63i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phkha"]
+render_priority = 0
+shader = ExtResource("1_gdy8i")
+shader_parameter/outline_thighness = 0.055
+
+[sub_resource type="Gradient" id="Gradient_lq7rw"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(0.200524, 0.109677, 0.356419, 1, 1, 0.797112, 0.741721, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f2h2u"]
+gradient = SubResource("Gradient_lq7rw")
+width = 4
+
+[resource]
+resource_name = "Body"
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_phkha")
+shader = ExtResource("2_3oejs")
+shader_parameter/albedo_texture = ExtResource("3_we63i")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_f2h2u")
