@@ -8,6 +8,7 @@ const HEIGHTMAP := preload('res://assets/heightmap.tres')
 
 const TILE_SIZE := 5.0
 const MAP_RADIUS := 200.0
+const HEIGHTMAP_SCALE := 5.0
 
 var grass_multimeshes : Array[Array] = []
 var previous_tile_id := Vector3.ZERO
@@ -17,24 +18,24 @@ var should_render_imgui := true
 @onready var camera_fov := [camera.fov]
 @onready var should_render_fog := [$Environment.environment.volumetric_fog_enabled]
 @onready var should_render_shadows := [true]
-@onready var density_modifier := [1.0]
+@onready var density_modifier := [0.8 if Engine.is_editor_hint() else 1.0]
 @onready var clumping_factor := [GRASS_MAT.get_shader_parameter('clumping_factor')]
 @onready var wind_speed := [GRASS_MAT.get_shader_parameter('wind_speed')]
 
 func _init() -> void:
 	DisplayServer.window_set_size(DisplayServer.screen_get_size() * 0.75)
 	DisplayServer.window_set_position(DisplayServer.screen_get_size() * 0.25 / 2.0)
-	RenderingServer.global_shader_parameter_set('heightmap', HEIGHTMAP) # idk this needs to be set manually??
+	RenderingServer.global_shader_parameter_set('heightmap', HEIGHTMAP)
+	RenderingServer.global_shader_parameter_set('heightmap_scale', HEIGHTMAP_SCALE)
 	
 func _ready() -> void:
-	RenderingServer.viewport_set_measure_render_time(get_tree().root.get_viewport_rid(), true) 
+	RenderingServer.viewport_set_measure_render_time(get_tree().root.get_viewport_rid(), true)
+	should_render_imgui = not Engine.is_editor_hint()
 	_setup_heightmap_collision()
 	_setup_grass_instances()
 	_generate_grass_multimeshes()
 
 func _render_imgui() -> void:
-	if not should_render_imgui or Engine.is_editor_hint(): return
-	
 	var viewport_rid := get_tree().root.get_viewport_rid()
 	var frame_time = RenderingServer.get_frame_setup_time_cpu() + RenderingServer.viewport_get_measured_render_time_cpu(viewport_rid) + RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid)
 	
@@ -66,7 +67,9 @@ func _input(event: InputEvent) -> void:
 		should_render_imgui = not should_render_imgui
 
 func _process(delta: float) -> void:
-	_render_imgui()
+	if should_render_imgui:
+		_render_imgui()
+	$Player.enable_camera_movement = Input.is_action_pressed('ui_select') and not ImGui.IsAnyItemActive()
 
 func _physics_process(delta: float) -> void:
 	RenderingServer.global_shader_parameter_set('player_position', $Player.global_position)
@@ -82,16 +85,17 @@ func _physics_process(delta: float) -> void:
 ## Creates a HeightMapShape3D from the provided NoiseTexture2D
 func _setup_heightmap_collision() -> void:
 	var heightmap := HEIGHTMAP.noise.get_image(512, 512)
+	var dims := Vector2i(heightmap.get_height(), heightmap.get_width())
 	var map_data : PackedFloat32Array
-	for j in heightmap.get_height():
-		for i in heightmap.get_width():
-			map_data.push_back((heightmap.get_pixel(i, j).r - 0.5)*5.0)
+	for j in dims.x:
+		for i in dims.y:
+			map_data.push_back((heightmap.get_pixel(i, j).r - 0.5)*HEIGHTMAP_SCALE)
 	
 	var heightmap_shape := HeightMapShape3D.new()
-	heightmap_shape.map_width = heightmap.get_height()
-	heightmap_shape.map_depth = heightmap.get_width()
+	heightmap_shape.map_width = dims.x
+	heightmap_shape.map_depth = dims.y
 	heightmap_shape.map_data = map_data
-	$StaticBody3D/CollisionShape3D.shape = heightmap_shape
+	$Ground/CollisionShape3D.shape = heightmap_shape
 
 ## Creates initial tiled multimesh instances.
 func _setup_grass_instances() -> void:
@@ -103,6 +107,7 @@ func _setup_grass_instances() -> void:
 			instance.position = Vector3(i, 0.0, j)
 			instance.extra_cull_margin = 1.0
 			add_child(instance)
+			
 			grass_multimeshes.append([instance, instance.position])
 
 ## Generates multimeshes for previously created multimesh instances with LOD based

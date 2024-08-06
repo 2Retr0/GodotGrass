@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
 @export var speed := 5.0
-@export var jump_velocity = 4.5
-@export var mouse_sensitivity = 0.4
+@export var jump_velocity := 4.5
+@export var mouse_sensitivity := 0.4
+@export var enable_camera_movement := true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting('physics/3d/default_gravity')
@@ -12,7 +13,7 @@ var blend_factor := 0.0
 @onready var camera_rotation := Vector2($CameraMount.rotation_degrees.x, $CameraMount.rotation_degrees.y)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.is_action_pressed('ui_select'):
+	if event is InputEventMouseMotion and enable_camera_movement:
 		camera_rotation += -event.relative * mouse_sensitivity
 		camera_rotation.y = clamp(camera_rotation.y, -80.0, 70.0)
 		$CameraMount.rotation_degrees = Vector3(camera_rotation.y, camera_rotation.x, 0.0)
@@ -23,7 +24,7 @@ func _input(event: InputEvent) -> void:
 		camera_offset_z += 0.25
 		camera_offset_z = minf(camera_offset_z, 4.0)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	if velocity.length_squared() != 0.0:
 		var angle_offset_velocity : float = velocity.signed_angle_to(-$CameraMount.global_basis.z * Vector3(1,0,1), Vector3.UP)
 		$Reisen.rotation.y = lerp_angle($Reisen.rotation.y, $CameraMount.rotation.y + PI - angle_offset_velocity, minf(delta*5.0, 1.0))
@@ -36,6 +37,8 @@ func _process(delta: float) -> void:
 	$CameraMount/Camera3D.position.z = lerpf($CameraMount/Camera3D.position.z, camera_offset_z, minf(delta*5.0, 1.0))
 
 func _physics_process(delta: float) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if enable_camera_movement else Input.MOUSE_MODE_VISIBLE
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

@@ -65,7 +65,7 @@ void vertex() {
 	vec3 camera_offset = NODE_POSITION_WORLD - CAMERA_POSITION_WORLD;
 	float camera_distance = length(camera_offset);
 	float height_offset = mix(0.4, 2.0, mix(hash0, clump0, 0.8));
-	
+
 	VERTEX.x *= mix(0.6, 1.0, hash1);
 	// The further the distance from the camera, the thicker the grass blade will
 	// appear to account for decreasing density with LOD
@@ -129,7 +129,7 @@ void fragment() {
 	ALBEDO *= mix(0.1, 1.0, height_factor*height_factor); // AO
 	// Color becomes more uniform as distance increases
 	ALBEDO = mix(mix(base_color, tip_color, 0.5)*0.5, ALBEDO, fog_factor);
-	
+
 	//AO = mix(0.1, 1.0, height_factor*height_factor); // Note: This looks better but is only visible when shadows are enabled!
 	ROUGHNESS = mix(1.0, 0.4, ease_out_quartic(height_factor));
 	ANISOTROPY = 0.85;
