@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dam0h1uosp7p0"]
 
 [ext_resource type="Shader" path="res://assets/player/reisen/reisen.gdshader" id="1_xbhim"]
-[ext_resource type="Texture2D" uid="uid://b804axl023ijr" path="res://assets/player/reisen/reisen_faces.png" id="2_rwm4j"]
+[ext_resource type="Texture2D" uid="uid://b660hjca6i3id" path="res://assets/player/reisen/reisen_face.png" id="2_hl0yj"]
 
 [sub_resource type="Gradient" id="Gradient_lq7rw"]
 interpolation_mode = 2
@@ -15,5 +15,5 @@ width = 4
 [resource]
 render_priority = 0
 shader = ExtResource("1_xbhim")
-shader_parameter/albedo_texture = ExtResource("2_rwm4j")
+shader_parameter/albedo_texture = ExtResource("2_hl0yj")
 shader_parameter/color_ramp = SubResource("GradientTexture1D_f2h2u")

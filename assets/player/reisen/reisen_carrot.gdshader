@@ -5,8 +5,9 @@ uniform sampler2D albedo_texture : source_color, filter_nearest;
 uniform sampler2D color_ramp : source_color, filter_nearest;
 
 void fragment() {
-	float fresnel = pow(min(1.0 - dot(NORMAL, VIEW), 1.0), 4.0);
-	ALBEDO = texture(albedo_texture, UV).rgb + round(fresnel)*0.2;
+	vec4 albedo = texture(albedo_texture, UV);
+	ALBEDO = albedo.rgb;
+	ALPHA = albedo.a;
 }
 
 void light() {

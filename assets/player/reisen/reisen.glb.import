@@ -21,7 +21,7 @@ nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=false
 meshes/create_shadow_meshes=false
-meshes/light_baking=1
+meshes/light_baking=0
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
@@ -1837,6 +1837,10 @@ _subresources={
 "Body": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/player/reisen/reisen_body.tres"
+},
+"Carrot": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/player/reisen/reisen_carrot.tres"
 },
 "Faces": {
 "use_external/enabled": true,
