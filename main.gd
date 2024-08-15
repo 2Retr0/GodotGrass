@@ -42,7 +42,10 @@ func _render_imgui() -> void:
 	ImGui.Begin(' ', [], ImGui.WindowFlags_AlwaysAutoResize | ImGui.WindowFlags_NoMove)
 	ImGui.SetWindowPos(Vector2(20, 20))
 	
-	ImGui.PushStyleColor(ImGui.Col_Text, Color.WEB_GRAY); ImGui.Text('Press %s-H to toggle visibility!' % ['Cmd' if OS.get_name() == 'macOS' else 'Ctrl']); ImGui.PopStyleColor()
+	ImGui.PushStyleColor(ImGui.Col_Text, Color.WEB_GRAY); 
+	ImGui.Text('Press %s-H to toggle GUI visibility!' % ['Cmd' if OS.get_name() == 'macOS' else 'Ctrl']); 
+	ImGui.Text('Press %s-F to toggle fullscreen!' % ['Cmd' if OS.get_name() == 'macOS' else 'Ctrl']); 
+	ImGui.PopStyleColor()
 	ImGui.SeparatorText('Grass')
 	ImGui.Text('FPS:              %d (%s)' % [Engine.get_frames_per_second(), '%.2fms' % frame_time])
 	ImGui.Text('Render Fog:      '); ImGui.SameLine(); if ImGui.Checkbox('##fog_bool', should_render_fog): $Environment.environment.volumetric_fog_enabled = should_render_fog[0]
@@ -65,6 +68,13 @@ func _render_imgui() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('toggle_imgui'):
 		should_render_imgui = not should_render_imgui
+	elif event.is_action_pressed('toggle_fullscreen'):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	elif event.is_action_pressed('ui_cancel'):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _process(delta: float) -> void:
 	if should_render_imgui:
