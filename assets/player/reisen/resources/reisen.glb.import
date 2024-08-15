@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cguqdcgualws5"
-path="res://.godot/imported/reisen.glb-222e8cc032ce3667a52c4b0a6f3f4d40.scn"
+path="res://.godot/imported/reisen.glb-202c936f77e1315ee670fd3cbfa786e9.scn"
 
 [deps]
 
-source_file="res://assets/player/reisen/reisen.glb"
-dest_files=["res://.godot/imported/reisen.glb-222e8cc032ce3667a52c4b0a6f3f4d40.scn"]
+source_file="res://assets/player/reisen/resources/reisen.glb"
+dest_files=["res://.godot/imported/reisen.glb-202c936f77e1315ee670fd3cbfa786e9.scn"]
 
 [params]
 
@@ -36,7 +36,7 @@ _subresources={
 "RunCycle": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://assets/player/reisen/run_cycle.res",
+"save_to_file/path": "res://assets/player/reisen/resources/run_cycle.res",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -1836,15 +1836,15 @@ _subresources={
 "materials": {
 "Body": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/player/reisen/reisen_body.tres"
+"use_external/path": "res://assets/player/reisen/resources/reisen_body.tres"
 },
 "Carrot": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/player/reisen/reisen_carrot.tres"
+"use_external/path": "res://assets/player/reisen/resources/reisen_carrot.tres"
 },
 "Faces": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/player/reisen/reisen_face.tres"
+"use_external/path": "res://assets/player/reisen/resources/reisen_face.tres"
 }
 }
 }

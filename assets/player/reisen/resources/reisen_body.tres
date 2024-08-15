@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://b5k6pwptfbnop"]
 
-[ext_resource type="Shader" path="res://assets/player/reisen/outline.gdshader" id="1_gdy8i"]
-[ext_resource type="Shader" path="res://assets/player/reisen/reisen.gdshader" id="2_3oejs"]
-[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/reisen_body.png" id="3_we63i"]
+[ext_resource type="Shader" path="res://assets/player/reisen/shaders/outline.gdshader" id="1_gdy8i"]
+[ext_resource type="Shader" path="res://assets/player/reisen/shaders/reisen.gdshader" id="2_3oejs"]
+[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/resources/reisen_body.png" id="3_we63i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phkha"]
 render_priority = 0

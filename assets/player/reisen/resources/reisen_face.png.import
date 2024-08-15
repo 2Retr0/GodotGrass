@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b660hjca6i3id"
-path.s3tc="res://.godot/imported/reisen_face.png-a5a79d26d521e863c4279587e5940b78.s3tc.ctex"
+path.s3tc="res://.godot/imported/reisen_face.png-dcf1a9eb193b505051dc20bf71a37df4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/player/reisen/reisen_face.png"
-dest_files=["res://.godot/imported/reisen_face.png-a5a79d26d521e863c4279587e5940b78.s3tc.ctex"]
+source_file="res://assets/player/reisen/resources/reisen_face.png"
+dest_files=["res://.godot/imported/reisen_face.png-dcf1a9eb193b505051dc20bf71a37df4.s3tc.ctex"]
 
 [params]
 

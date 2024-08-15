@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cxo2ptutirvin"]
 
-[ext_resource type="Shader" path="res://assets/player/reisen/reisen_carrot.gdshader" id="1_q5v0x"]
-[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/reisen_body.png" id="3_ghfu5"]
+[ext_resource type="Shader" path="res://assets/player/reisen/shaders/reisen_carrot.gdshader" id="1_q5v0x"]
+[ext_resource type="Texture2D" uid="uid://c3fqutd6tx8ia" path="res://assets/player/reisen/resources/reisen_body.png" id="3_ghfu5"]
 
 [sub_resource type="Gradient" id="Gradient_lq7rw"]
 interpolation_mode = 2

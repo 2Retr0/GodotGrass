@@ -25,8 +25,8 @@ func _input(event: InputEvent) -> void:
 		camera_offset_z += 0.25
 		camera_offset_z = minf(camera_offset_z, 4.0)
 
-func _process(delta: float) -> void:	
-	if velocity.length_squared() != 0.0:
+func _process(delta: float) -> void:
+	if abs(velocity.x) + abs(velocity.z) != 0.0:
 		var angle_offset_velocity : float = velocity.signed_angle_to(-$CameraMount.global_basis.z * Vector3(1,0,1), Vector3.UP)
 		model.rotation.y = lerp_angle(model.rotation.y, $CameraMount.rotation.y + PI - angle_offset_velocity, minf(delta*5.0, 1.0))
 	
@@ -45,8 +45,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed('ui_accept') and is_on_floor():
-		velocity.y = jump_velocity
+	#if Input.is_action_just_pressed('ui_accept') and is_on_floor():
+		#velocity.y = jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwq03hp7jphg1"]
+
+[ext_resource type="Script" path="res://assets/player/reisen/skirt_controller.gd" id="1_1x8eb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52y5v"]
+render_priority = 1
+transparency = 1
+no_depth_test = true
+diffuse_mode = 1
+albedo_color = Color(0, 0.658824, 0.6, 0.941176)
+disable_receive_shadows = true
+distance_fade_min_distance = 2.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_q8dwd"]
+material = SubResource("StandardMaterial3D_52y5v")
+radius = 0.075
+height = 0.15
+radial_segments = 8
+rings = 8
+
+[sub_resource type="MultiMesh" id="MultiMesh_yhr3d"]
+transform_format = 1
+mesh = SubResource("SphereMesh_q8dwd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymlrt"]
+no_depth_test = true
+diffuse_mode = 1
+albedo_color = Color(0.59137, 0.911922, 0, 1)
+disable_receive_shadows = true
+distance_fade_min_distance = 2.0
+distance_fade_max_distance = 0.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2pnsr"]
+material = SubResource("StandardMaterial3D_ymlrt")
+top_radius = 0.025
+bottom_radius = 0.025
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="MultiMesh" id="MultiMesh_1em4j"]
+transform_format = 1
+mesh = SubResource("CylinderMesh_2pnsr")
+
+[node name="SkirtController" type="Node"]
+script = ExtResource("1_1x8eb")
+
+[node name="ParticleDebugMultiMesh" type="MultiMeshInstance3D" parent="."]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_yhr3d")
+metadata/_edit_lock_ = true
+
+[node name="SpringDebugMultiMesh" type="MultiMeshInstance3D" parent="."]
+cast_shadow = 0
+multimesh = SubResource("MultiMesh_1em4j")
+metadata/_edit_lock_ = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c27p7yyaopewk"]
+[gd_scene load_steps=9 format=3 uid="uid://c27p7yyaopewk"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_mjy8e"]
-[ext_resource type="PackedScene" uid="uid://bc0yymaj0j4qy" path="res://assets/player/reisen/reisen.tscn" id="2_6d162"]
+[ext_resource type="PackedScene" uid="uid://c4j34g85ou7xk" path="res://assets/player/reisen/reisen.tscn" id="2_6d162"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fnfje"]
 height = 1.7
@@ -25,6 +25,8 @@ nodes/Run/position = Vector2(688, 80)
 nodes/output/position = Vector2(896, 128)
 node_connections = [&"Run", 0, &"Anim Idle", &"Run", 1, &"Anim Run", &"output", 0, &"Run"]
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_wg4fs"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_mjy8e")
 
@@ -35,143 +37,82 @@ shape = SubResource("CylinderShape3D_fnfje")
 [node name="Reisen" parent="." instance=ExtResource("2_6d162")]
 
 [node name="Skeleton3D" parent="Reisen/Armature" index="0"]
-bones/0/position = Vector3(0, 7.5592, -2.86102e-06)
-bones/0/rotation = Quaternion(-6.91464e-07, -7.54979e-08, 5.0243e-14, 1)
-bones/1/rotation = Quaternion(4.61989e-07, 7.10542e-15, -6.97585e-14, 1)
-bones/2/rotation = Quaternion(0.852692, 0.354413, 0.354412, -0.147311)
-bones/3/rotation = Quaternion(-0.138812, -0.343467, 0.362315, 0.855271)
-bones/4/rotation = Quaternion(0.0130352, -0.0105669, -0.000150127, 0.999859)
-bones/5/rotation = Quaternion(-0.403749, 0.0467375, -0.0865698, 0.909565)
-bones/6/rotation = Quaternion(-0.307847, -0.0951916, 0.0322018, 0.946114)
-bones/7/rotation = Quaternion(0.0878245, 0.698604, -0.0739407, 0.706238)
-bones/8/rotation = Quaternion(-0.000600804, -0.704967, -0.00143718, 0.709238)
-bones/9/position = Vector3(-0.012749, -0.347552, -0.372134)
-bones/9/rotation = Quaternion(-0.0641028, 0.00433618, -0.0910903, 0.993768)
-bones/10/rotation = Quaternion(0.0105714, -0.00373477, 0.0149468, 0.999825)
-bones/11/rotation = Quaternion(0.0877598, -0.0129695, -0.0760104, 0.993153)
-bones/12/rotation = Quaternion(-0.0103217, 0.00251651, 0.000179414, 0.999944)
-bones/13/rotation = Quaternion(-0.0777954, 5.29347e-07, -2.95592e-08, 0.996969)
-bones/14/rotation = Quaternion(0.027219, 8.73454e-07, 4.85776e-08, 0.999629)
-bones/15/rotation = Quaternion(0.147793, -4.13806e-07, 3.31067e-07, 0.989018)
-bones/16/rotation = Quaternion(0.12019, -8.78197e-07, 1.89145e-07, 0.992751)
-bones/20/rotation = Quaternion(-0.109573, 0.990476, -0.0795534, -0.0249658)
-bones/24/rotation = Quaternion(-0.0430848, 0.983614, 0.0392134, -0.170615)
-bones/28/rotation = Quaternion(0.649379, 0.0974205, 0.752915, -0.0439943)
-bones/40/rotation = Quaternion(0.665635, 0.330071, 0.534144, -0.403328)
-bones/41/rotation = Quaternion(-0.390522, 0.260799, -0.0759047, 0.879611)
-bones/42/rotation = Quaternion(-0.00284373, 0.0253286, -0.000339977, 0.999675)
-bones/43/rotation = Quaternion(-0.0184307, 0.0464448, -0.0177396, 0.998593)
-bones/44/rotation = Quaternion(0.236196, 0.318826, -0.276824, 0.875174)
-bones/45/rotation = Quaternion(-0.102298, -0.00513273, 0.149642, 0.983421)
-bones/46/rotation = Quaternion(0.0677477, 0.233463, 0.0054608, 0.969987)
-bones/47/rotation = Quaternion(-0.134258, -0.0133708, 0.0346864, 0.990249)
-bones/48/rotation = Quaternion(0.042482, 0.00396929, -0.0140408, 0.998991)
-bones/49/rotation = Quaternion(-0.0177726, 0.279173, 0.0120794, 0.96)
-bones/50/rotation = Quaternion(0.0319968, -0.00631158, -0.0147078, 0.99936)
-bones/51/rotation = Quaternion(-0.0516502, 0.00423437, 0.0238694, 0.998371)
-bones/52/rotation = Quaternion(0.665637, -0.330069, -0.534142, -0.403329)
-bones/53/rotation = Quaternion(-0.38791, -0.28878, 0.088446, 0.87081)
-bones/54/rotation = Quaternion(-0.00284369, -0.0253287, 0.000339995, 0.999675)
-bones/55/rotation = Quaternion(-0.0184307, -0.0464448, 0.0177396, 0.998593)
-bones/56/rotation = Quaternion(0.236196, -0.318826, 0.276823, 0.875174)
-bones/57/rotation = Quaternion(-0.102298, 0.00513286, -0.149642, 0.983421)
-bones/58/rotation = Quaternion(0.0677477, -0.233463, -0.00546079, 0.969987)
-bones/59/rotation = Quaternion(-0.134258, 0.0133709, -0.0346864, 0.990249)
-bones/60/rotation = Quaternion(0.0424819, -0.00396927, 0.0140408, 0.998991)
-bones/61/rotation = Quaternion(-0.0177726, -0.279173, -0.0120794, 0.96)
-bones/62/rotation = Quaternion(0.0319968, 0.00631177, 0.0147078, 0.99936)
-bones/63/rotation = Quaternion(-0.0516502, -0.00423442, -0.0238695, 0.998371)
-bones/64/rotation = Quaternion(0.852692, -0.354413, -0.354412, -0.147311)
-bones/65/rotation = Quaternion(-0.138812, 0.343467, -0.362315, 0.855271)
-bones/66/rotation = Quaternion(0.0130346, 0.0105669, 0.000150135, 0.999859)
-bones/67/rotation = Quaternion(-0.403749, -0.0467375, 0.0865699, 0.909565)
-bones/68/rotation = Quaternion(-0.307847, 0.0951916, -0.0322017, 0.946114)
-bones/69/rotation = Quaternion(0.0878245, -0.698604, 0.0739407, 0.706238)
-bones/70/rotation = Quaternion(-0.000600808, 0.704967, 0.00143715, 0.709238)
-bones/71/rotation = Quaternion(-0.0641028, -0.00433621, 0.0910903, 0.993768)
-bones/72/rotation = Quaternion(0.0105714, 0.00373477, -0.0149468, 0.999825)
-bones/73/rotation = Quaternion(0.0877598, 0.0129694, 0.0760103, 0.993153)
-bones/74/rotation = Quaternion(-0.0103217, -0.00251651, -0.000179401, 0.999944)
-bones/75/position = Vector3(0.00248023, -0.815122, 0.537304)
-bones/75/rotation = Quaternion(0.996846, 5.99043e-09, -7.52597e-08, 0.0793601)
-bones/76/rotation = Quaternion(0.00247528, -2.73748e-15, -1.10742e-12, 0.999997)
-bones/77/rotation = Quaternion(0.993958, -8.26158e-09, -7.50389e-08, -0.109765)
-bones/78/rotation = Quaternion(-0.0154288, 4.72342e-09, 4.28014e-08, 0.999881)
+bones/19/rotation = Quaternion(0.12019, -8.78197e-07, 1.89145e-07, 0.992751)
 
 [node name="JiggleboneHair0" parent="Reisen/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.120011, 0.0108357, 0.000285459, 0.0100623, -0.112549, 0.0418542, 0.00403027, -0.0416609, -0.112997, 0.0899509, 0.576385, -0.478653)
+transform = Transform3D(0.12001, 0.0108407, 0.000292072, 0.0100669, -0.112571, 0.0417924, 0.00403267, -0.0415986, -0.113019, 0.0899509, 0.576385, -0.478653)
 
 [node name="JiggleboneHair1" parent="Reisen/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.120499, -0.000196743, -2.33468e-05, -0.000189947, -0.118759, 0.0204054, -5.63258e-05, -0.0204055, -0.118759, 0.0386444, 0.10917, -0.281971)
+transform = Transform3D(0.120499, -0.000195089, -1.66457e-05, -0.000189464, -0.118765, 0.0203752, -4.93934e-05, -0.0203752, -0.118764, 0.038656, 0.109095, -0.281764)
 
 [node name="JiggleboneHair2" parent="Reisen/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.120339, -0.00618432, -0.00048736, -0.00616467, -0.120275, 0.00401851, -0.000692688, -0.00398826, -0.120431, -0.0133467, -0.28469, -0.383232)
+transform = Transform3D(0.12034, -0.00618299, -0.000478148, -0.00616365, -0.120275, 0.00401682, -0.000683363, -0.00398706, -0.120431, -0.0133226, -0.284791, -0.382673)
 
 [node name="JiggleboneHair3" parent="Reisen/Armature/Skeleton3D" index="4"]
-transform = Transform3D(-0.116014, -0.0324851, -0.0023733, 0.03191, -0.115117, 0.0158151, -0.00653079, 0.0145979, 0.119433, -0.247729, -0.556023, -0.238978)
+transform = Transform3D(-0.116014, -0.0324841, -0.00236497, 0.0319065, -0.115108, 0.0158827, -0.0065408, 0.0146654, 0.119425, -0.247726, -0.556102, -0.238565)
 
 [node name="JiggleboneBangs" parent="Reisen/Armature/Skeleton3D" index="5"]
-transform = Transform3D(0.1205, -4.03008e-08, 7.22652e-08, -6.01713e-09, -0.10923, -0.0508821, 8.2524e-08, 0.0508821, -0.10923, -3.93697e-07, 0.653842, 0.547921)
+transform = Transform3D(0.1205, -4.04934e-08, 7.22891e-08, -6.23053e-09, -0.10926, -0.0508175, 8.26233e-08, 0.0508175, -0.10926, -3.93697e-07, 0.653843, 0.547922)
 
 [node name="JiggleboneWispL_0" parent="Reisen/Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.119216, 0.00995077, 0.0144495, 0.0110934, -0.11964, -0.0091357, 0.013592, 0.0103686, -0.119281, 0.22073, 0.562112, 0.321119)
+transform = Transform3D(0.119412, 0.00805559, 0.0140026, 0.00868883, -0.120082, -0.00501512, 0.0136187, 0.00597953, -0.119579, 0.190498, 0.542181, 0.250022)
 
 [node name="JiggleboneWispL_1" parent="Reisen/Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.120394, 0.00490603, 0.00118164, 0.00492678, -0.12038, -0.00217448, 0.00109193, 0.00222089, -0.120475, 0.159533, 0.170167, 0.10087)
+transform = Transform3D(0.120432, 0.00394538, 0.000943858, 0.00394541, -0.120435, 1.14539e-05, 0.000943727, 1.94563e-05, -0.120496, 0.153869, 0.168848, 0.0877519)
 
 [node name="JiggleboneWispL_2" parent="Reisen/Armature/Skeleton3D" index="8"]
-transform = Transform3D(-0.1131, -0.00180752, -0.0415383, 0.00323748, -0.120403, -0.00357566, -0.0414513, -0.00447207, 0.113058, 0.170157, -0.0906038, 0.105683)
+transform = Transform3D(-0.113163, -0.00229825, -0.0413411, 0.00406612, -0.120349, -0.00443968, -0.0412048, -0.00556436, 0.113099, 0.162412, -0.0920439, 0.0877954)
 
 [node name="JiggleboneWispR_0" parent="Reisen/Armature/Skeleton3D" index="9"]
-transform = Transform3D(0.119406, -0.00739451, -0.0144126, -0.00882286, -0.119602, -0.0117329, -0.0135852, 0.0126817, -0.119058, -0.178413, 0.569217, 0.358407)
+transform = Transform3D(0.119412, -0.00805561, -0.0140025, -0.00868885, -0.120082, -0.00501513, -0.0136186, 0.00597953, -0.119579, -0.190498, 0.542181, 0.250022)
 
 [node name="JiggleboneWispR_1" parent="Reisen/Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.120439, -0.00362603, -0.00123268, -0.00365904, -0.120398, -0.00334638, -0.00113094, 0.00338212, -0.120447, -0.151893, 0.170279, 0.107783)
+transform = Transform3D(0.120432, -0.00394542, -0.000943716, -0.00394545, -0.120435, 1.14483e-05, -0.000943585, 1.94576e-05, -0.120496, -0.153869, 0.168848, 0.0877517)
 
 [node name="JiggleboneWispR_2" parent="Reisen/Armature/Skeleton3D" index="11"]
-transform = Transform3D(-0.113037, 0.00244279, 0.0416763, -0.00363839, -0.120412, -0.00281048, 0.041589, -0.0038948, 0.113028, -0.159744, -0.0905315, 0.115111)
+transform = Transform3D(-0.113163, 0.00229823, 0.041341, -0.0040661, -0.120349, -0.00443968, 0.0412047, -0.00556435, 0.113099, -0.162412, -0.092044, 0.0877952)
 
 [node name="JiggleboneHairL_0" parent="Reisen/Armature/Skeleton3D" index="12"]
-transform = Transform3D(-0.0182169, 0.0233972, 0.116794, -0.0445497, -0.110916, 0.0152709, 0.11047, -0.0408713, 0.0254182, 0.30624, 0.555033, -0.372231)
+transform = Transform3D(-0.018417, 0.0232273, 0.116797, -0.0435966, -0.111296, 0.0152587, 0.110816, -0.0399249, 0.0254139, 0.303429, 0.549164, -0.357403)
 
 [node name="JiggleboneHairL_1" parent="Reisen/Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.0217232, 0.00663213, 0.11834, -0.0168189, -0.119266, 0.00359665, 0.117326, -0.0158691, 0.0224265, 0.204498, 0.0277035, -0.18956)
+transform = Transform3D(-0.0218351, 0.00653469, 0.118325, -0.01634, -0.119333, 0.00357507, 0.117373, -0.0153972, 0.0225099, 0.203826, 0.0262623, -0.185988)
 
 [node name="JiggleboneHairL_2" parent="Reisen/Armature/Skeleton3D" index="14"]
-transform = Transform3D(-0.0212025, -0.00638016, 0.118448, 0.00195743, -0.120328, -0.00613103, 0.118603, 0.000845322, 0.021276, 0.226442, -0.366815, -0.242053)
+transform = Transform3D(-0.0213171, -0.00643667, 0.118424, 0.0021994, -0.120323, -0.00614395, 0.118579, 0.00107463, 0.0214033, 0.225445, -0.368478, -0.23692)
 
 [node name="JiggleboneHairR_0" parent="Reisen/Armature/Skeleton3D" index="15"]
-transform = Transform3D(-0.0184076, -0.0232228, -0.116799, 0.0436403, -0.11128, 0.0152477, -0.110801, -0.039971, 0.0254096, -0.303428, 0.549164, -0.357405)
+transform = Transform3D(-0.0184162, -0.0232194, -0.116799, 0.0435999, -0.111296, 0.0152507, -0.110815, -0.03993, 0.0254109, -0.303428, 0.549163, -0.357403)
 
 [node name="JiggleboneHairR_1" parent="Reisen/Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.0218352, -0.0065313, -0.118325, 0.0163342, -0.119334, 0.00357273, -0.117374, -0.015392, 0.0225094, -0.2038, 0.0262426, -0.185949)
+transform = Transform3D(-0.0218349, -0.0065346, -0.118325, 0.0163399, -0.119333, 0.00357501, -0.117373, -0.0153972, 0.0225097, -0.203824, 0.0262622, -0.185988)
 
 [node name="JiggleboneHairR_2" parent="Reisen/Armature/Skeleton3D" index="17"]
-transform = Transform3D(-0.0213169, 0.00643833, -0.118424, -0.00220222, -0.120323, -0.00614513, -0.118579, 0.0010772, 0.0214033, -0.225408, -0.368501, -0.236864)
+transform = Transform3D(-0.0213169, 0.00643657, -0.118425, -0.0021994, -0.120323, -0.00614385, -0.118579, 0.00107466, 0.0214031, -0.225446, -0.368479, -0.23692)
 
 [node name="JiggleboneEarL_0" parent="Reisen/Armature/Skeleton3D" index="18"]
-transform = Transform3D(6.24865e-07, 0.0213214, -0.118599, -0.0203921, 0.116888, 0.0210137, 0.118762, 0.0200702, 0.0036088, 0.25716, 2.59228, 0.20553)
+transform = Transform3D(-4.20886e-06, 0.021321, -0.118599, -0.0204186, 0.116884, 0.0210133, 0.118757, 0.0200971, 0.00360873, 0.257161, 2.59228, 0.205529)
 
 [node name="JiggleboneEarL_1" parent="Reisen/Armature/Skeleton3D" index="19"]
-transform = Transform3D(-2.87294e-08, 0.0216466, -0.11854, -0.0921355, 0.076398, 0.0139511, 0.0776614, 0.0906367, 0.0165512, 0.111175, 0.791951, 0.068086)
+transform = Transform3D(-2.87294e-08, 0.0216467, -0.11854, -0.0921355, 0.0763981, 0.0139511, 0.0776614, 0.0906366, 0.0165512, 0.111175, 0.791952, 0.0680854)
 
 [node name="JiggleboneEarL_2" parent="Reisen/Armature/Skeleton3D" index="20"]
-transform = Transform3D(0, 0.0149455, -0.11957, -0.113187, 0.0410203, 0.00512734, 0.0413395, 0.112313, 0.0140385, 0.131474, 0.863639, 0.153135)
+transform = Transform3D(-2.87294e-08, 0.0149456, -0.11957, -0.113187, 0.0410203, 0.00512736, 0.0413396, 0.112313, 0.0140385, 0.131474, 0.86364, 0.153134)
 
 [node name="JiggleboneEarR_0" parent="Reisen/Armature/Skeleton3D" index="21"]
-transform = Transform3D(-9.04977e-06, -0.0213206, 0.118599, 0.0204457, 0.116879, 0.0210129, -0.118753, 0.0201247, 0.00360876, -0.25716, 2.59228, 0.20553)
+transform = Transform3D(-4.30941e-08, -0.0213213, 0.118599, 0.0203964, 0.116887, 0.0210137, -0.118761, 0.0200746, 0.0036089, -0.257161, 2.59228, 0.205529)
 
 [node name="JiggleboneEarR_1" parent="Reisen/Armature/Skeleton3D" index="22"]
-transform = Transform3D(5.74589e-08, -0.0216467, 0.11854, 0.0921355, 0.076398, 0.0139511, -0.0776614, 0.0906366, 0.0165513, -0.111175, 0.791951, 0.0680858)
+transform = Transform3D(5.74589e-08, -0.0216467, 0.11854, 0.0921355, 0.076398, 0.0139511, -0.0776614, 0.0906366, 0.0165514, -0.111175, 0.791952, 0.0680854)
 
 [node name="JiggleboneEarR_2" parent="Reisen/Armature/Skeleton3D" index="23"]
-transform = Transform3D(4.30941e-08, -0.0149457, 0.119569, 0.113187, 0.0410203, 0.00512732, -0.0413396, 0.112313, 0.0140386, -0.131474, 0.863639, 0.153135)
+transform = Transform3D(3.59118e-08, -0.0149457, 0.11957, 0.113187, 0.0410203, 0.00512733, -0.0413396, 0.112313, 0.0140387, -0.131474, 0.86364, 0.153134)
 
 [node name="BoneAttachmentSpine_0" parent="Reisen/Armature/Skeleton3D" index="24"]
-transform = Transform3D(0.497567, 0.708828, 0.499991, 0.499994, -0.705382, 0.502437, 0.708826, -4.03958e-06, -0.705384, 1.12057e-05, 7.55925, 8.58013e-08)
+transform = Transform3D(1, 3.92239e-15, -1.50996e-07, 6.53771e-14, 1, 4.5895e-07, 1.50996e-07, -4.5895e-07, 1, 1.65976e-15, 7.98238, -3.44625e-06)
 
 [node name="BoneAttachmentChest" parent="Reisen/Armature/Skeleton3D" index="25"]
-transform = Transform3D(0.989479, 0.142409, -0.0255301, 0.144628, -0.968913, 0.200726, 0.00384899, -0.202307, -0.979315, 0.666966, 7.17911, -0.670578)
+transform = Transform3D(1, 6.03961e-14, 2.65847e-06, -2.68853e-07, 0.994873, 0.101131, -2.64484e-06, -0.101131, 0.994873, -7.14788e-14, 9.36192, -0.118936)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Reisen")
@@ -187,6 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.4, 2)
 current = true
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamPolyphonic_wg4fs")
 volume_db = -5.0
 max_polyphony = 2
 

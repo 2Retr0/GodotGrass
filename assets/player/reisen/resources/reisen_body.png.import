@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3fqutd6tx8ia"
-path="res://.godot/imported/reisen_body.png-a794622a4e60c7fdf9d54a9bd38588dc.ctex"
+path="res://.godot/imported/reisen_body.png-841822008be5085de45eaaf003ea2f04.ctex"
 metadata={
 "vram_texture": false
 }
@@ -13,8 +13,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/player/reisen/reisen_body.png"
-dest_files=["res://.godot/imported/reisen_body.png-a794622a4e60c7fdf9d54a9bd38588dc.ctex"]
+source_file="res://assets/player/reisen/resources/reisen_body.png"
+dest_files=["res://.godot/imported/reisen_body.png-841822008be5085de45eaaf003ea2f04.ctex"]
 
 [params]
 
