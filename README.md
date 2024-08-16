@@ -12,7 +12,7 @@ Grass blades which are perpendicular to the camera are stretched horizontally in
 
 A basic 'hacky' lighting model for grass is implemented atop Godot's default lighting model. Ambient lighting is modeled by augmenting the diffuse light with power curve so that vertices facing away from lights are still lit slightly. Subsurface scattering is modeled by adding a separate color based on the angle between the view and light vector. Specular highlights are driven by Godot's default lighting model.
 
-![apperance_demo](https://github.com/user-attachments/assets/1222d6b6-42ad-416e-aea6-7c6cf97ce328)
+![apperance_demo](https://github.com/user-attachments/assets/a575f5ac-7266-4b18-9a4c-f9c6174d9c86)
 
 ### Environmental Factors
 To provide a less-uniform appearance to fields of grass, a "clumping factor" parameter was created to clump initial rotational offset for groups of grass blades based on a cellular noise texture. The same noise texture is used to independently clump the heights and maximum bend angles for grass blades. Global grass density can also be controlled using a separate parameter. 
@@ -26,7 +26,7 @@ The combination of these features yield a realistic-looking model for grass acro
 ### Level of Detail (LOD)
 A simple tile-based LOD system is used to improve performance while maintaining a consistent visual quality. Each LOD tile is driven by a density (denoting how many blades of grass will be distributed along its boundaries) and a mesh (swapping between a hard-coded high-quality and low-quality blade mesh). These properties change depending on the tile's distance from the camera and are updated every time the camera moves into a new tile.
 
-Unfortunately, LOD swapping is very noticable due to the tiled nature of the system. Tile fade-in or seeded random blade placement can possibly alleviate this problem. Since each LOD tile is culled all at once, a tradeoff has to be made between the amount of draw calls and culling performance. At the time of writing this, GPU instancing in Godot can only be achieved using the engine's MultiMeshInstance node. This requires the positions of blades to be calculated on the CPU—a compute shader-based approach could permit a more-performant and dynamic LOD system.
+Unfortunately, LOD swapping is very noticable due to the tiled nature of the system. Tile fade-in or seeded random blade placement can possibly alleviate this problem. Since each tile is culled all at once, a tradeoff has to be made between the amount of draw calls and culling performance. At the time of writing this, GPU instancing in Godot can only be achieved using the engine's MultiMeshInstance node. This requires the positions of blades to be calculated on the CPU—a compute shader-based approach could permit a more-performant and dynamic LOD system.
 
 ![lod_demo](https://github.com/user-attachments/assets/470badbc-b140-42b1-9930-58e0f88dc18b)
 
